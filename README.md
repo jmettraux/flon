@@ -34,9 +34,10 @@ We mean:
 * a flon participant worker interprets and executes messages about participants, it hosts the participant code or interfaces with the real, remote participant
 
 
-## support
+## documentation
 
-The web, can be backed-up by Amazon SWF and S3.
+* [glossary](doc/glossary.md)
+* [flon worker](doc/worker.md)
 
 
 ## license
