@@ -28,7 +28,15 @@ Placed side by side with participant work.
 
 Independent flon execution and/or participant work unit.
 
+See [worker.md](worker.md).
+
 ### flon execution
+
+TODO
+
+### flon execution node
+
+(In ruote, this was called a _flow expression_)
 
 TODO
 
@@ -41,6 +49,18 @@ TODO
 The work done by a flon worker to hand workitems forth and back to participants. Also comprises the work involved when handing cancellation workitems to participants.
 
 Participant work can be thought as part of the execution work, but since it deals on the boundary of the execution, with participants, it is practical to label it separately.
+
+### tracker
+
+A pair condition + message. When the condition realizes the message is triggered.
+
+There are two kinds of trackers, message trackers and time trackers.
+
+Message trackers watch the in-worker activity and trigger whenever a message match the condition.
+
+Timer trackers trigger whenever a given point in time is reached.
+
+Message trackers let workflows observe themselves and each others. Time trackers are used to implement timers and timeouts.
 
 ### workflon
 
