@@ -3,7 +3,7 @@
 
 Flon is an evolution of [ruote](http://ruote.rubyforge.org).
 
-It builds on the experience since 2001 with OpenWFE and then ruote.
+It builds on the OpenWFE and then ruote projects.
 
 Flon is a distributed interpreter for a language meant to describe "workflows".
 
@@ -19,6 +19,8 @@ By "workflow", we do not mean:
 We mean:
 
 * description and coordination of the work of one or more participants
+
+We totally understand that stashing a few state machines on entities may suffice to describe the workflows around those entities and that flon and its ilk is about shooting oneself in the foot and growing long lasting monsters that are hard to revert.
 
 
 ## concepts
@@ -38,6 +40,8 @@ We mean:
 
 * [glossary](doc/glossary.md)
 * [flon worker](doc/worker.md)
+* [messages](doc/messages.md) exchanged between flon execution nodes
+* [testing](doc/testing.md) testing flon
 
 
 ## license
