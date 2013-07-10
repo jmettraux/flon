@@ -15,6 +15,7 @@ By "workflow", we do not mean:
 * programming workflow
 * digital photography workflow
 * entity lifecycle
+* web/screen workflow (wizards)
 
 We mean:
 
