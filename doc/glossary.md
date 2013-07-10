@@ -4,7 +4,15 @@
 
 ### cycle
 
-TODO
+Chain communication between flon workers.
+
+Cycles are used by flon workers to pass
+
+- current list of flon workers (list of HTTP URIs)
+- updates to list of trackers
+- messages that couldn't be emitted directly to their executor (or that were refused by their executor)
+
+The cycle always follows the alphabetical orders of the flon workers.
 
 ### execution
 
@@ -17,6 +25,14 @@ Was chosen over _process_, _job_ and _workflow instance_ (or even _task_). Proce
 The work done to enact the execution of a workflow.
 
 Placed side by side with participant work.
+
+### executor
+
+Given a workflow execution, the flon worker in charge of performing the execution of this workflow.
+
+Participant work can be done by whatever flon worker (in fact by any flon worker that hosts the participant code/script) whereas execution work goes always to a dedicated flon worker. Messages contain the URI of the flon worker meant to be the executor.
+
+When an executor becomes unreachable (or refuses work), messages get queued and then carried via a cycle for other flon workers consideration and eventual acceptation.
 
 ### flon
 
@@ -49,6 +65,10 @@ TODO
 The work done by a flon worker to hand workitems forth and back to participants. Also comprises the work involved when handing cancellation workitems to participants.
 
 Participant work can be thought as part of the execution work, but since it deals on the boundary of the execution, with participants, it is practical to label it separately.
+
+### timer
+
+Short for "time tracker".
 
 ### tracker
 
