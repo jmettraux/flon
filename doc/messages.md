@@ -12,15 +12,22 @@ Orders are meant to be followed by some execution, while notifications are follo
 
 ## messages by name
 
-### "apply"
+### "apply" (launch)
 ### "reply"
+
+### "pause"
+### "resume"
+
+### "cancel"
+### "kill"
 
 ### "dispatch"
 ### "dispatch_cancel"
 ### "dispatch_kill"
+### "dispatch_pause"
+### "dispatch_resume"
 
-### "cancel"
-### "kill"
+### "dispatched"
 
 ### "error_intercepted"
 ### "terminated"
@@ -29,5 +36,6 @@ Orders are meant to be followed by some execution, while notifications are follo
 
 ## _thought dump_
 
-* Join cancel and kill into a single kill + level message (like nix signals)
+* join cancel and kill into a single kill + level message (like nix signals) ?
+* simplify dispatch_x ?
 
