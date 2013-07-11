@@ -57,6 +57,15 @@ Each flon worker has an integrated clock (is a clockworker?), at each tick, the 
 ```
   - for each time tracker
     - next timer unless due
-    - if due, emit message and discard time tracker
+    - if due and this worker is a clockworker for the executor, emit message
+    - if due, discard time tracker
+```
+
+Given a cycle length and a desired number of clockworkers in a cycle, the flon worker may determine by itself if it is a clockworker relatively to the executor of a message:
+
+```ruby
+def clocks(cycle_length, clock_count)
+  (0..clock_count - 1).collect { |i| l * i / cycle_length }.uniq
+end
 ```
 
