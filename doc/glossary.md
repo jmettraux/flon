@@ -48,7 +48,7 @@ See [worker.md](worker.md).
 
 ### flon execution
 
-TODO
+A flon execution is an instance of a workflow definition.
 
 ### flon execution node
 
@@ -97,6 +97,10 @@ A workflow generally has a goal, be it transformation and/or circulation of data
 ### workflow definition
 
 TODO
+
+### workflow instance
+
+An instance of a workflow definition. In the flon context, the favoured designation is _flon execution_.
 
 ### workitem
 
