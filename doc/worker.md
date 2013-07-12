@@ -5,10 +5,24 @@ A flon worker drives the execution of flon workflow executions.
 
 ## worker "behaviours"
 
-### upon receiving a message
+### step
+
+The worker stays idle until it receives a message, a cycle or once every 0.3 seconds (where it considers timers).
+
+The worker is always checking the clock or its work queue. It could wake up every 10ms and check the clock / work queue.
 
 ```
-  - receive message
+  - time since I last did clock service > 0.300 ?
+    - yes, perform clock duty
+  - process work queue (message or cycle)
+  - did any work during this step ?
+    - yes, do not sleep
+    - no, sleep 21ms (or more)
+```
+
+### upon processing a message
+
+```
   - fetch execution
     - if execution not found, queue message for the next cycle
   - execute
@@ -20,7 +34,7 @@ A flon worker drives the execution of flon workflow executions.
   - queue trackers for the next cycle
 ```
 
-### upon receiving a cycle
+### upon processing a cycle
 
 ```
   - if cycle's target hash != own map hash then request full cycle
@@ -34,6 +48,7 @@ A flon worker drives the execution of flon workflow executions.
   - delete part
     - remove tracker notifications that have completed the cycle
     - remove messages if there is a copy of their execution locally
+  - emit cycle to next flon worker in ring
 ```
 
 ### message emission
@@ -42,15 +57,16 @@ When a flon worker emits a message to another flow worker.
 
 ```
   - identify executor
+  - is executor me?
+    - yes, queue message locally and return
   - is executor in ring?
-    - yes
-      - post message to executor
-        - if the post failes, queue message for the next cycle
+    - yes, post message to executor
+      - if the post fails, queue message for the next cycle
     - no
       - queue message for the next cycle
 ```
 
-### at each clock tick
+### clock duty
 
 Each flon worker has an integrated clock (is a clockworker?), at each tick, the list of time trackers (timers) is considered
 
