@@ -64,7 +64,7 @@ Each flon worker has an integrated clock (is a clockworker?), at each tick, the 
 Given a cycle length and a desired number of clockworkers in a cycle, the flon worker may determine by itself if it is a clockworker relatively to the executor of a message:
 
 ```ruby
-def clocks(cycle_length, clock_count)
+def clock_offsets(cycle_length, clock_count)
   (0..clock_count - 1).collect { |i| l * i / cycle_length }.uniq
 end
 ```
