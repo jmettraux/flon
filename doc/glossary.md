@@ -4,6 +4,8 @@
 
 ### cycle
 
+See [cycle](cycle.md).
+
 Chain communication between flon workers.
 
 Cycles are used by flon workers to pass
@@ -55,6 +57,12 @@ A flon execution is an instance of a workflow definition.
 (In ruote, this was called a _flow expression_)
 
 TODO
+
+### message
+
+TODO
+
+See [messages](messages.md).
 
 ### participant
 
