@@ -1,11 +1,17 @@
 
 # flon
 
-Flon is an evolution of [ruote](http://ruote.rubyforge.org).
+Flon is an evolution of [ruote](http://ruote.io).
 
 It builds on the OpenWFE and then ruote projects.
 
 Flon is a distributed interpreter for a language meant to describe "workflows".
+
+...
+
+Flon lives now at [https://github.com/flon-io](https://github.com/flon-io). Meet you there.
+
+...
 
 
 ## workflow
